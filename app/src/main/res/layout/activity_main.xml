@@ -56,5 +56,18 @@
         android:layout_marginTop="10dp"
         android:onClick="checkRegister"/>
 
+    <!-- <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bonjour sur socket.io"
+        android:id="@+id/messageWriter" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="changement d'endroits"
+        android:layout_below="@+id/messageWriter"
+        android:layout_marginTop="10dp"
+        android:onClick="sendMessage"/>
+        !-->
 </RelativeLayout>

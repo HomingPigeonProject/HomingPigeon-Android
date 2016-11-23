@@ -43,6 +43,17 @@ public class MainActivity extends AppCompatActivity {
         etUsername = (EditText) findViewById(R.id.username);
 
     }
+    public final static String EXTRA_MESSAGE = "kaist.homingpigeon.MESSAGE";
+    public void sendMessage(View view) {
+
+        Intent intent = new Intent(this, SuccessActivity.class);
+        EditText editText = (EditText) findViewById(R.id.username);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+
+        // Do something in response to button to go to socket.IO
+    }
 
     // Triggers when LOGIN Button clicked
     public void checkLogin(View arg0) {
@@ -175,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 /* Here launching another activity when login successful. If you persist login state
                 use sharedPreferences of Android. and logout button to clear sharedPreferences.
                  */
-
                 Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
                 startActivity(intent);
                 MainActivity.this.finish();
