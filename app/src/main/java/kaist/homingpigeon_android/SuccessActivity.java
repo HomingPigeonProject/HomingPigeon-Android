@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,6 +42,7 @@ public class SuccessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_success);
 
 //transition : we get the previous name
+        // doesn't work
         Intent intent = getIntent();
         String message = "you are logged in : "+intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         TextView textView = new TextView(this);
@@ -47,19 +50,38 @@ public class SuccessActivity extends AppCompatActivity {
         textView.setText(message);
 //end of failed transition
 
+//We need here a function to get all the friends list and info from the server
+
+
+
+
 //load the list in app/build/intermediates/assets/debug/recipes.json
         final Context context = this;
         // Get data to display
-        final ArrayList<Recipe> recipeList = Recipe.getRecipesFromFile("recipes.json", this);
+        final ArrayList<Recipe> recipeList = Recipe.getRecipesFromFile("/recipes.json", this);
         // Create adapter
         RecipeAdapter adapter = new RecipeAdapter(this, recipeList);
         // Create list view
         mListView = (ListView) findViewById(R.id.recipe_list_view);
         mListView.setAdapter(adapter);
 //end of loaded list
+
+        //click on a list element
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Recipe selectedRecipe = recipeList.get(position);
+
+                Intent detailIntent = new Intent(context, DetailActivity.class);
+                detailIntent.putExtra("title", selectedRecipe.title);
+                detailIntent.putExtra("url", selectedRecipe.instructionUrl);
+
+                startActivity(detailIntent);
+            }
+
+        });
+
+
     }
-
-
-
-
 }

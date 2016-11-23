@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SuccessActivity" />
-        <activity android:name=".socketIoStuff"></activity>
+        <activity android:name=".SuccessActivity"/>
+        <activity android:name=".DetailActivity"/>
+        <activity android:name=".socketIoStuff"/>
     </application>
 
 </manifest>

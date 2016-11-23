@@ -33,7 +33,7 @@ import java.util.HashMap;
 import com.squareup.picasso.Picasso;
 import android.graphics.Typeface;
 
-public class RecipeAdapter extends BaseAdapter {
+public class RecipeAdapter extends BaseAdapter { //adapts our list view
 
   public static final String TAG = RecipeAdapter.class.getSimpleName();
   public static final HashMap<String, Integer> LABEL_COLORS = new HashMap<String, Integer>()
